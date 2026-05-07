@@ -6,6 +6,14 @@ GitHub Action that registers a custom domain in Netlify and creates/updates a ma
 - Single responsibility: attach domain in Netlify + upsert DNS in Cloudflare. No deploy logic — your existing Netlify git integration (or a separate deploy step) handles that.
 - Scoped-token friendly: Cloudflare token only needs `Zone -> DNS -> Edit` on the target zone.
 
+## About this project
+
+`cf-dns-action` is a deployment-support project for connecting Netlify sites to managed Cloudflare DNS without repeating the same manual dashboard steps for every portfolio or client build. It takes a subdomain, a Netlify site ID, and scoped Cloudflare/Netlify credentials, then makes the custom-domain and CNAME state match the requested configuration.
+
+The useful part is the safety contract around the automation: dry-run mode, create-only mode, idempotent API calls, explicit outputs, optional SSL polling, retry handling, and scoped Cloudflare tokens. The action is designed to sit beside an existing Netlify deployment workflow, not replace the build or deployment process itself.
+
+In practice, this is the kind of infrastructure helper I use so project launches stay repeatable: the app deploys through Netlify, this action wires the public domain, and the workflow can be re-run without breaking DNS that is already correct.
+
 ## Usage
 
 Minimal workflow in a consuming repo:
