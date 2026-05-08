@@ -1,4 +1,4 @@
-node_modules/
+﻿node_modules/
 lib/
 coverage/
 *.log
@@ -8,3 +8,12 @@ coverage/
 .vscode/
 .idea/
 .claude/
+
+# Local agent/Codex artifacts
+/AGENTS.md
+/AGENTS.md.before-codex-memory-import-*
+/CLAUDE.md
+/CONTEXT.md
+/MEMORY.md
+/.codex/
+
