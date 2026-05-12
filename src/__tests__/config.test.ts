@@ -73,7 +73,7 @@ describe('InputsSchema', () => {
     createOnly: false,
     dryRun: false,
     waitForCert: false,
-    certTimeoutSeconds: 180,
+    certTimeoutSeconds: 300,
   };
 
   it('accepts valid inputs', () => {
@@ -113,7 +113,7 @@ describe('parseInt10', () => {
     expect(parseInt10(undefined, 42)).toBe(42);
   });
   it('parses valid integers', () => {
-    expect(parseInt10('180', 0)).toBe(180);
+    expect(parseInt10('300', 0)).toBe(300);
     expect(parseInt10(' 30 ', 0)).toBe(30);
   });
   it('returns fallback for non-numeric', () => {

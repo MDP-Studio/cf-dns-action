@@ -31494,7 +31494,7 @@ function parseInputs() {
         createOnly: parseBool(core.getInput('create-only'), false),
         dryRun: parseBool(core.getInput('dry-run'), false),
         waitForCert: parseBool(core.getInput('wait-for-cert'), false),
-        certTimeoutSeconds: parseInt10(core.getInput('cert-timeout-seconds'), 180),
+        certTimeoutSeconds: parseInt10(core.getInput('cert-timeout-seconds'), 300),
     };
     // Mask secrets before anything can log them (e.g., a thrown zod error echoing raw input).
     if (raw.netlifyAuthToken)

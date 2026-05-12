@@ -42,9 +42,9 @@ inputs:
     required: false
     default: 'false'
   cert-timeout-seconds:
-    description: 'Max seconds to wait for SSL provisioning. Ignored unless wait-for-cert=true. Range 10-900, default 180.'
+    description: 'Max seconds to wait for SSL provisioning. Ignored unless wait-for-cert=true. Range 10-900, default 300.'
     required: false
-    default: '180'
+    default: '300'
 
 outputs:
   fqdn:

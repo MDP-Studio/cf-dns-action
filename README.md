@@ -55,7 +55,7 @@ See `examples/project-workflow.yml` for a more complete example.
 | `create-only` | no | `false` | Fail instead of updating an existing record with a different target. |
 | `dry-run` | no | `false` | Log intended changes without writing. |
 | `wait-for-cert` | no | `false` | Poll Netlify until the SSL cert is provisioned before returning. Use when a downstream step must hit the HTTPS URL. |
-| `cert-timeout-seconds` | no | `180` | Max seconds to wait for cert (range 10–900). Ignored unless `wait-for-cert: true`. A timeout is logged as a warning, not a failure. |
+| `cert-timeout-seconds` | no | `300` | Max seconds to wait for cert (range 10–900). Ignored unless `wait-for-cert: true`. A timeout is logged as a warning, not a failure. |
 
 ## Outputs
 
