@@ -4,8 +4,20 @@ All notable changes to this project are documented here. Format: [Keep a Changel
 
 ## [Unreleased]
 
+## [1.0.3] - 2026-07-14
+
+### Security
+- Update the bundled HTTP client to `undici` 6.27.0, resolving the runtime
+  advisories affecting versions below 6.27.0.
+- Pin every third-party action used by CI, release, and dist-rebuild workflows
+  to a reviewed full commit SHA.
+
 ### Changed
 - Relax default Netlify SSL polling timeout from 180s to 300s while keeping `cert-timeout-seconds` configurable.
+- Split dist rebuilding into a read-only build job and a narrowly scoped commit
+  job, and verify releases before granting write permission.
+- Surface API response parsing failures through debug logs without exposing
+  credentials.
 
 ## [1.0.2] - 2026-04-21
 

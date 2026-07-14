@@ -104,6 +104,18 @@ describe('InputsSchema', () => {
     const r = InputsSchema.safeParse({ ...valid, certTimeoutSeconds: 10_000 });
     expect(r.success).toBe(false);
   });
+
+  it.each(['neurometric', 'kinu-dining'])(
+    'accepts the current workspace consumer subdomain %s',
+    (subdomain) => {
+      const r = InputsSchema.safeParse({
+        ...valid,
+        subdomain,
+        waitForCert: true,
+      });
+      expect(r.success).toBe(true);
+    },
+  );
 });
 
 describe('parseInt10', () => {

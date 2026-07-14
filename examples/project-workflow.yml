@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Register custom domain + create CNAME
         id: dns
-        uses: meidielo/cf-dns-action@v1
+        uses: MDP-Studio/cf-dns-action@v1
         with:
           subdomain: myapp                 # myapp.mdpstudio.com.au
           netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}

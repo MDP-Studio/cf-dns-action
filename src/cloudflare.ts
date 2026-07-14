@@ -60,8 +60,9 @@ export class CloudflareClient {
     let json: CfResponse<T> | undefined;
     try {
       json = (await res.json()) as CfResponse<T>;
-    } catch {
-      // ignore
+    } catch (err) {
+      console.debug(`Cloudflare API ${method} ${path} returned non-JSON body`, err);
+      core.debug(`Cloudflare API ${method} ${path} returned non-JSON body: ${String(err)}`);
     }
     if (!res.ok || !json?.success) {
       const errs = (json?.errors ?? []).map((e) => `[${e.code}] ${e.message}`).join('; ');

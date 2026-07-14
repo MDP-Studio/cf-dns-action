@@ -73,6 +73,8 @@ export async function run(): Promise<void> {
     );
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err);
+    console.error(msg);
+    core.error(msg);
     core.setFailed(msg);
   }
 }

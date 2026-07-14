@@ -28,7 +28,7 @@ jobs:
   dns:
     runs-on: ubuntu-latest
     steps:
-      - uses: meidielo/cf-dns-action@v1
+      - uses: MDP-Studio/cf-dns-action@v1
         with:
           subdomain: myapp
           netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}

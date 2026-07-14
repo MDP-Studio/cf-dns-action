@@ -64,8 +64,9 @@ export class NetlifyClient {
       let detail = '';
       try {
         detail = (await res.text()).slice(0, 500);
-      } catch {
-        // ignore
+      } catch (err) {
+        console.debug(`Netlify API ${method} ${path} returned unreadable error body`, err);
+        core.debug(`Netlify API ${method} ${path} returned unreadable error body: ${String(err)}`);
       }
       throw new Error(
         `Netlify API ${method} ${path} failed (HTTP ${res.status}): ${detail || 'no body'}`,
