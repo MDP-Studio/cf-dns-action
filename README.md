@@ -130,6 +130,12 @@ npm run all   # lint + typecheck + vitest + ncc build
 
 The bundled output lives in `dist/index.js` and must be committed. The CI workflow (`.github/workflows/ci.yml`) fails the build if `dist/` drifts from source. As a safety net, `.github/workflows/auto-build-dist.yml` rebuilds and commits `dist/` automatically when source changes land on `main` without a corresponding bundle update.
 
+## Security
+
+Report vulnerabilities privately as described in [SECURITY.md](SECURITY.md).
+Never include Cloudflare, Netlify, or GitHub tokens, account identifiers, zone
+IDs, site IDs, or client-private domain details in a public issue.
+
 ### Retry behaviour
 
 Both Cloudflare and Netlify API calls retry up to 3 times with exponential backoff (500 ms → 1 s → 2 s) on `429`, `502`, `503`, `504`, and network errors. Non-retryable errors (4xx other than 429) fail immediately.
